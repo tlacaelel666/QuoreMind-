@@ -1,4 +1,12 @@
 # QuoreMindHP v1.0.0 - Framework de Alta Precisión
+[![License: Apache2.0](https://img.shields.io/badge/License-Apache2.0-yellow.svg)](https://opensource.org/licenses/Apache2.0)
+![Project Status](https://img.shields.io/badge/Project%20Status-In%20Progress-blue)
+![Python Version](https://img.shields.io/badge/python-3.9%2B-blue.svg)
+
+
+
+
+![IMG-20250411-WA0000](https://github.com/user-attachments/assets/d82e4a7e-e01a-4170-bec7-248e487e1abb)
 
 **Un framework en Python para lógica bayesiana, análisis estadístico y modelado de Ruido Probabilístico de Referencia (PRN) utilizando aritmética de precisión arbitraria.**
 
@@ -56,10 +64,15 @@ PRECISION_GLOBAL = 100
 mpmath.mp.dps = PRECISION_GLOBAL 
 
 # ... el resto de tu código usando QuoreMindHP ...
+```
 
 El framework QuoreMindHP usará esta precisión para todas sus operaciones internas.
-Uso
-Ejemplo Básico
+
+## Uso
+
+### Ejemplo Básico
+
+```python
 import mpmath
 from quoremind_hp import BayesLogicHP, StatisticalAnalysisHP, PRN_HP, BayesLogicConfigHP # Asume que guardaste el script como quoremind_hp.py
 
@@ -91,14 +104,23 @@ data_set = [['1.0', '1.1'], ['1.01', '1.12'], ['0.99', '1.08'], ['3.0', '3.1']]
 point = ['1.5', '1.6']
 mahal_dist = stats.compute_mahalanobis_distance_hp(data_set, point)
 print(f"\nDistancia de Mahalanobis HP: {mpmath.nstr(mahal_dist, n=mpmath.mp.dps)}") 
+```
 
-Ejecutar Demostraciones
+### Ejecutar Demostraciones
+
 El script principal (quoremind_hp.py si lo guardaste así) incluye funciones de demostración que puedes ejecutar directamente para ver ejemplos de cada componente en acción:
-python quoremind_hp.py 
 
-Esto ejecutará run_bayes_logic_hp_example(), run_statistical_analysis_hp_example(), run_prn_hp_example() y run_e_calculation_example().
-Calcular Constantes (ej. 'e')
+```bash
+python quoremind_hp.py 
+```
+
+Esto ejecutará `run_bayes_logic_hp_example()`, `run_statistical_analysis_hp_example()`, `run_prn_hp_example()` y `run_e_calculation_example()`.
+
+### Calcular Constantes (ej. 'e')
+
 Puedes usar la función incluida para calcular 'e' u otras constantes/funciones soportadas por mpmath con la precisión que necesites:
+
+```python
 from quoremind_hp import calculate_e_mpmath
 import mpmath
 
@@ -108,24 +130,36 @@ print(mpmath.nstr(e_val, n=200))
 
 # Obtener Pi con la precisión global actual
 print(mpmath.pi) 
+```
 
-Core Components
- * BayesLogicConfigHP: Dataclass para configurar los umbrales y epsilon de BayesLogicHP usando tipos mpmath.mpf.
- * BayesLogicHP: Implementa las fórmulas de Bayes y lógica de decisión relacionada usando aritmética mpmath.
- * StatisticalAnalysisHP: Provee métodos para calcular entropía, cosenos y, crucialmente, la distancia de Mahalanobis con alta precisión (incluyendo cálculo de media, covarianza e inversa de covarianza con mpmath).
- * PRN_HP: Modela el Ruido Probabilístico de Referencia, manejando el factor de influencia (influence) como mpmath.mpf.
- * calculate_e_mpmath: Función de ejemplo/utilidad para calcular la constante 'e' con alta precisión.
-Potenciales Aplicaciones
+## Core Components
+
+* **BayesLogicConfigHP**: Dataclass para configurar los umbrales y epsilon de BayesLogicHP usando tipos mpmath.mpf.
+* **BayesLogicHP**: Implementa las fórmulas de Bayes y lógica de decisión relacionada usando aritmética mpmath.
+* **StatisticalAnalysisHP**: Provee métodos para calcular entropía, cosenos y, crucialmente, la distancia de Mahalanobis con alta precisión (incluyendo cálculo de media, covarianza e inversa de covarianza con mpmath).
+* **PRN_HP**: Modela el Ruido Probabilístico de Referencia, manejando el factor de influencia (influence) como mpmath.mpf.
+* **calculate_e_mpmath**: Función de ejemplo/utilidad para calcular la constante 'e' con alta precisión.
+
+## Potenciales Aplicaciones
+
 Este framework es útil en escenarios donde la precisión numérica es crítica:
- * Simulaciones científicas: Física, astronomía, sistemas caóticos.
- * Estadística y Machine Learning: Análisis de datos con posibles problemas de condicionamiento numérico, evaluación de modelos, lógica bayesiana robusta.
- * Finanzas Cuantitativas: Modelos complejos, cálculo de riesgos.
- * Geometría Computacional: Cálculos precisos de intersecciones o distancias.
- * Investigación y Educación: Exploración de constantes, demostración de limitaciones numéricas, verificación de algoritmos.
- * Integración con tu proyecto cuadrante-coremind: Especialmente donde la lógica bayesiana, la distancia de Mahalanobis o las simulaciones (potencialmente cuánticas) requieran mayor robustez numérica.
-Licencia
-Este proyecto se distribuye bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
-(Nota: Puedes elegir otra licencia o eliminar esta sección si prefieres)
-Autor
- * Concepto Original (QuoreMind): Jacobo Tlacaelel Mina Rodríguez
- * Adaptación a Alta Precisión (QuoreMindHP): [Tu Nombre o Alias si modificas/contribuyes]
+
+* **Simulaciones científicas**: Física, astronomía, sistemas caóticos.
+* **Estadística y Machine Learning**: Análisis de datos con posibles problemas de condicionamiento numérico, evaluación de modelos, lógica bayesiana robusta.
+* **Finanzas Cuantitativas**: Modelos complejos, cálculo de riesgos.
+* **Geometría Computacional**: Cálculos precisos de intersecciones o distancias.
+* **Investigación y Educación**: Exploración de constantes, demostración de limitaciones numéricas, verificación de algoritmos.
+* **Integración con tu proyecto cuadrante-coremind**: Especialmente donde la lógica bayesiana, la distancia de Mahalanobis o las simulaciones (potencialmente cuánticas) requieran mayor robustez numérica.
+
+## Licencia
+
+Este proyecto se distribuye bajo la Licencia Apache 2.0 Consulta el archivo LICENSE para más detalles.
+
+## Autor
+
+* **Concepto Original (QuoreMind)**
+* **Adaptación a Alta Precisión (QuoreMindHP)**:[ Jacobo Tlacaelel Mina Rodríguez. "jako" ]
+
+## Etiquetas
+
+`python` `bayes` `estadística` `matemáticas` `alta-precisión` `mpmath` `mahalanobis` `bayesian-logic` `shannon-entropy` `numerical-robustness` `computational-science` `machinelearning`
