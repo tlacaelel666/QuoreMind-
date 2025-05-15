@@ -12,10 +12,6 @@ Proyecto: QuoreMindHP v1.0.0 (Basado en QuoreMind v1.0.0)
 """
 
 import numpy as np
-# Quitamos TensorFlow y TFP por ahora para centrarnos en mpmath y numpy/scipy
-# Si necesitas TFP específicamente, la integración sería más compleja
-# import tensorflow as tf 
-# import tensorflow_probability as tfp 
 import mpmath
 from typing import Tuple, List, Dict, Union, Any, Optional, Callable, TypeVar
 from scipy.spatial.distance import mahalanobis as scipy_mahalanobis # Para comparación
