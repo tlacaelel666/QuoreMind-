@@ -8,9 +8,10 @@
 
 ![IMG-20250411-WA0000](https://github.com/user-attachments/assets/d82e4a7e-e01a-4170-bec7-248e487e1abb)
 
-**Un framework en Python para lógica bayesiana, análisis estadístico y modelado de Ruido Probabilístico de Referencia (PRN) utilizando aritmética de precisión arbitraria.**
+## Description
 
-Basado en el concepto original de QuoreMind v1.0.0 por Jacobo Tlacaelel Mina Rodríguez.
+QuoreMind v1.0.0 es un framework en Python diseñado para la implementación de lógica bayesiana, análisis estadísticos y modelado del "Ruido Probabilístico de Referencia" (PRN), incorporando conceptos de entropía cuántica (entropía de von Neumann). Este proyecto busca proporcionar herramientas para analizar sistemas complejos desde una perspectiva probabilística y cuántica, permitiendo la toma de decisiones informadas basadas en la incertidumbre y la coherencia de los datos.
+por Jacobo Tlacaelel Mina Rodríguez.
 Adaptado con alta precisión usando la biblioteca `mpmath`.
 
 ---
@@ -132,8 +133,19 @@ print(mpmath.nstr(e_val, n=200))
 print(mpmath.pi) 
 ```
 
-## Core Components
+## Core Components & Structure
 
+# El framework QuoreMind v1.0.0 está organizado en varias clases y funciones para modularizar la lógica y los análisis:
+
+*   **`EntropyType`**: Un enumerador para especificar el tipo de entropía a calcular (Shannon, Von Neumann, o ambos).
+*   **Decoradores (`timer_decorator`, `validate_input_decorator`)**: Funciones para añadir funcionalidad extra (medición de tiempo, validación de entrada) a otras funciones.
+*   **`BayesLogicConfig`**: Una dataclass para configurar parámetros utilizados por la clase `BayesLogic`.
+*   **`BayesLogic`**: Implementa la lógica bayesiana para calcular probabilidades posteriores, condicionales y conjuntas, y para tomar decisiones basadas en umbrales.
+*   **`StatisticalAnalysis`**: Contiene métodos para realizar análisis estadísticos, incluyendo el cálculo de la entropía de Shannon y la entropía de von Neumann, la creación de matrices de densidad, el cálculo de cosenos direccionales, la matriz de covarianza y la distancia de Mahalanobis.
+*   **`ComplexPRN`**: Clase para modelar el Ruido Probabilístico de Referencia (PRN) como números complejos, incluyendo su influencia y fase.
+*   **`PRN`**: Clase general para modelar el Ruido Probabilístico de Referencia con un factor de influencia y métodos para ajustarla y combinar PRNs.
+*   **Funciones de demostración (`run_bayes_logic_example`, `run_advanced_quantum_analysis`, `run_statistical_analysis_demo`, `run_prn_evolution_simulation`)**: Funciones que demuestran el uso de las diferentes partes del framework con ejemplos concretos.
+*   **`main()`**: La función principal que orquesta la ejecución de las funciones de demostración.
 * **BayesLogicConfigHP**: Dataclass para configurar los umbrales y epsilon de BayesLogicHP usando tipos mpmath.mpf.
 * **BayesLogicHP**: Implementa las fórmulas de Bayes y lógica de decisión relacionada usando aritmética mpmath.
 * **StatisticalAnalysisHP**: Provee métodos para calcular entropía, cosenos y, crucialmente, la distancia de Mahalanobis con alta precisión (incluyendo cálculo de media, covarianza e inversa de covarianza con mpmath).
@@ -149,7 +161,18 @@ Este framework es útil en escenarios donde la precisión numérica es crítica:
 * **Finanzas Cuantitativas**: Modelos complejos, cálculo de riesgos.
 * **Geometría Computacional**: Cálculos precisos de intersecciones o distancias.
 * **Investigación y Educación**: Exploración de constantes, demostración de limitaciones numéricas, verificación de algoritmos.
-* **Integración con tu proyecto cuadrante-coremind**: Especialmente donde la lógica bayesiana, la distancia de Mahalanobis o las simulaciones (potencialmente cuánticas) requieran mayor robustez numérica.
+* **Integración híbrida**: Especialmente donde la lógica bayesiana, la distancia de Mahalanobis o las simulaciones (potencialmente cuánticas) requieran mayor robustez numérica.
+
+## Contributing
+
+Si deseas contribuir a QuoreMind v1.0.0, por favor sigue estos pasos:
+
+1.  Haz un fork del repositorio.
+2.  Crea una nueva rama para tu característica (`git checkout -b f tlacaelel666/QuoreMind-`).
+3.  Realiza tus cambios y asegúrate de que el código pase las pruebas.
+4.  Haz commit de tus cambios (`git commit -m tlacaelel666/QuoreMind-`).
+5.  Haz push a la rama (`git push origin tlacaelel666/QuoreMind-`).
+6.  Abre un Pull Request.
 
 ## Licencia
 
