@@ -1,4 +1,4 @@
-# cirq_interactive.py
+# cirq_interaction.py
 import cirq
 import numpy as np
 import time
